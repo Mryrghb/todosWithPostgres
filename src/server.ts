@@ -8,7 +8,7 @@ import {
   deleteUser,
   updateUser,
 } from "./controllers/index.controllers";
-
+import { signIn, signUp } from "./controllers/auths";
 // Create an Express application
 const app = express();
 
@@ -25,6 +25,8 @@ userRouter.get("/user/:id", getUserById);
 userRouter.post("/user", createUser);
 userRouter.put("/user/:id", updateUser);
 userRouter.delete("/user/:id", deleteUser);
+userRouter.post("/signIn", signIn);
+userRouter.post("/signUp", signUp);
 
 // Use the userRouter for paths starting with '/api'
 app.use(userRouter);
